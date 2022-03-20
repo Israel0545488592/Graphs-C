@@ -3,17 +3,16 @@
 #include "DataStrucrures.h"
 
 /* 
-	The basis effecient graph implementation
-	The graph would have 2 snakes (see DataStrucrures.h),
-	one for nodes second for edges
-	the snakes would acctually point to other snakes
-	to divide the graphs elements by some factor k
-	that depends on the size of the graph (meaning it can change)
+	The basis for effecient graph implementation
+	the garph's vertecies is a 1D hash map
+	and the edges is a 2D hash map. this is how it works: 
+	the graphs elements are divided by some factor k
+	that depends on the size of the graph (meaning it can change).
 	the node/edge search algorithm will use k to 'hash' their
-	way to the destinations (root[src % k][dst % k])
+	way to the destinations (root[src % k][dst % k]).
 
 	this is'nt a full implementation yet!
-	this the basis for more specific uses like:
+	this is the basis for more specific uses like:
 	diracted-wieghted-graphs, flow-networks, ext...
 */
 
