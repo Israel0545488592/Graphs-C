@@ -33,6 +33,6 @@ typedef struct snake {	//A growable polimorphic array
 }snake;
 
 
-void init_snake (snake*, int);
+snake* create_snake (int);
 
 void addToSnake (snake*, void*);

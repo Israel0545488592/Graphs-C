@@ -5,12 +5,15 @@
 #include "DataStrucrures.h"
 
 
-void init_snake (snake* snk, int init_size) {
+snake* create_snake (int init_size){
+
+	snake* snk = (snake*) malloc(sizeof(snake));
+	if (! snk){ return NULL;}
 
 	snk -> arr = (void**) malloc(sizeof(void*) * init_size);
-	if (! snk -> arr) { return NULL;}
+	if (! snk -> arr){ return NULL;}
 
-	snk -> prev = init_size;
+	snk -> prev = 0;
 	snk -> curr = init_size;
 	snk -> itr = 0;
 
@@ -32,6 +35,7 @@ void addToSnake(snake* snk, void* data){
 		}
 	}
 
-	snk -> itr++;					//appending if all gone well
+	snk -> itr++;				//appending if all gone well
 	snk -> arr[snk -> itr] = data;
+	snk -> prev++;
 }

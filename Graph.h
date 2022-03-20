@@ -19,9 +19,11 @@
 
 typedef struct graph {
 
-	snake vertecies;
-	snake edges;
+	snake* vertecies;
+	snake** edges;
+
 	int hash;
+	int size;  //amount of nodes
 
 }graph;
 
@@ -30,7 +32,10 @@ void init_graph (graph*, int);
 
 void dismental_graph (); //free
 
-void addNode(int);
-void removeNode(int);
-void addEdge(edge*);  //each implementation would define 'connect'
-void removeEdge(int, int);
+//basic methods
+void addNode(graph*, int);
+void removeNode(graph*, int);
+void addEdge(graph*, edge*);      //each implementation would define 'connect',
+void removeEdge(graph*, edge*);	  //'disconnect', create/remove edge
+						  		  //that way the specific implementation would have
+						 		  //more control over the edge's data atrabute
